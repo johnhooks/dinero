@@ -10,15 +10,22 @@
 
 ---
 
-Money is complex, and the primitives of the language aren't enough to properly represent it. Dinero is a Deno library that lets you express monetary values, but also perform mutations, conversions, comparisons, formatting, and overall make money manipulation easier and safer in your application.
+Money is complex, and the primitives of the language aren't enough to properly
+represent it. Dinero is a Deno library that lets you express monetary values,
+but also perform mutations, conversions, comparisons, formatting, and overall
+make money manipulation easier and safer in your application.
 
 ## ⚡️ Quick start
 
-`Dinero` objects are minimal. Every function in `dinero` is side-effect free, allowing you only to bundle exactly what you use.
+`Dinero` objects are minimal. Every function in `dinero` is side-effect free,
+allowing you only to bundle exactly what you use.
 
 ```js
-import { USD } from "https://raw.githubusercontent.com/johnhooks/dinero/2.0.0-alpha.10/currencies.ts";
-import { dinero, add } from "https://raw.githubusercontent.com/johnhooks/dinero/2.0.0-alpha.10/mod.ts'";
+import { USD } from "https://raw.githubusercontent.com/johnhooks/dinero/v2.0.0-alpha.10/currencies.ts";
+import {
+  add,
+  dinero,
+} from "https://raw.githubusercontent.com/johnhooks/dinero/v2.0.0-alpha.10/mod.ts'";
 
 const d1 = dinero({ amount: 500, currency: USD });
 const d2 = dinero({ amount: 800, currency: USD });
