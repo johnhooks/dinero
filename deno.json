@@ -1,0 +1,23 @@
+{
+  "tasks": {
+    "format": "deno fmt src/ mod.ts"
+  },
+  "importMap": "./import_map.json",
+  "compilerOptions": {
+    "strict": true
+  },
+  "fmt": {
+    "files": {
+      "exclude": [
+        ".git"
+      ]
+    }
+  },
+  "lint": {
+    "files": {
+      "exclude": [
+        ".git"
+      ]
+    }
+  }
+}
