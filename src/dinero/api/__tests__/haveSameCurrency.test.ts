@@ -50,6 +50,25 @@ describe("haveSameCurrency", () => {
 
       assertEquals(haveSameCurrency([d1, d2]), true);
     });
+    it("returns true when multi-base currencies are structurally equal", () => {
+      const GBP = { code: "GBP", base: [20, 12], exponent: 1 };
+      const d1 = dinero({ amount: 240, currency: GBP });
+      const d2 = dinero({ amount: 240, currency: GBP });
+
+      assertEquals(haveSameCurrency([d1, d2]), true);
+    });
+    it("returns true when multi-base currencies compute to the same base", () => {
+      const d1 = dinero({
+        amount: 240,
+        currency: { code: "GBP", base: [20, 12], exponent: 1 },
+      });
+      const d2 = dinero({
+        amount: 240,
+        currency: { code: "GBP", base: 240, exponent: 1 },
+      });
+
+      assertEquals(haveSameCurrency([d1, d2]), true);
+    });
   });
   describe("bigint", () => {
     const dinero = createBigintDinero;
@@ -88,6 +107,25 @@ describe("haveSameCurrency", () => {
 
       assertEquals(haveSameCurrency([d1, d2]), true);
     });
+    it("returns true when multi-base currencies are structurally equal", () => {
+      const GBP = { code: "GBP", base: [20n, 12n], exponent: 1n };
+      const d1 = dinero({ amount: 240n, currency: GBP });
+      const d2 = dinero({ amount: 240n, currency: GBP });
+
+      assertEquals(haveSameCurrency([d1, d2]), true);
+    });
+    it("returns true when multi-base currencies compute to the same base", () => {
+      const d1 = dinero({
+        amount: 240n,
+        currency: { code: "GBP", base: [20n, 12n], exponent: 1n },
+      });
+      const d2 = dinero({
+        amount: 240n,
+        currency: { code: "GBP", base: 240n, exponent: 1n },
+      });
+
+      assertEquals(haveSameCurrency([d1, d2]), true);
+    });
   });
   describe("Big.js", () => {
     const dinero = createBigjsDinero;
@@ -122,6 +160,33 @@ describe("haveSameCurrency", () => {
           base: new Big(10),
           exponent: new Big(2),
         },
+      });
+
+      assertEquals(haveSameCurrency([d1, d2]), true);
+    });
+    it("returns true when multi-base currencies are structurally equal", () => {
+      const GBP = {
+        code: "GBP",
+        base: [new Big(20), new Big(20)],
+        exponent: new Big(1),
+      };
+      const d1 = dinero({ amount: new Big(240), currency: GBP });
+      const d2 = dinero({ amount: new Big(240), currency: GBP });
+
+      assertEquals(haveSameCurrency([d1, d2]), true);
+    });
+    it("returns true when multi-base currencies compute to the same base", () => {
+      const d1 = dinero({
+        amount: new Big(240),
+        currency: {
+          code: "GBP",
+          base: [new Big(20), new Big(12)],
+          exponent: new Big(1),
+        },
+      });
+      const d2 = dinero({
+        amount: new Big(240),
+        currency: { code: "GBP", base: new Big(240), exponent: new Big(1) },
       });
 
       assertEquals(haveSameCurrency([d1, d2]), true);

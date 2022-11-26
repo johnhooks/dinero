@@ -1,16 +1,20 @@
 import { assertEquals } from "testing/asserts.ts";
 import { describe, it } from "testing/bdd.ts";
 
+import { calculator } from "../../../calculator/number/mod.ts";
+
 import { isHalf } from "../isHalf.ts";
 
-describe("#isHalf", () => {
+const isHalfFn = isHalf(calculator);
+
+describe("isHalf", () => {
   it("returns true with a half number", () => {
-    assertEquals(isHalf(2.5), true);
+    assertEquals(isHalfFn(5, 10), true);
   });
   it("returns true with a negative half number", () => {
-    assertEquals(isHalf(-2.5), true);
+    assertEquals(isHalfFn(-5, 10), true);
   });
   it("returns false with a non-half number", () => {
-    assertEquals(isHalf(2), false);
+    assertEquals(isHalfFn(2, 10), false);
   });
 });

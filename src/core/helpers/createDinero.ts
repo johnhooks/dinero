@@ -1,14 +1,24 @@
 /* eslint-disable functional/no-mixed-type, functional/no-return-void, functional/no-expression-statement */
-import type { Calculator, Dinero, DineroOptions } from "../types/mod.ts";
+import type {
+  Calculator,
+  Dinero,
+  DineroOptions,
+  Formatter,
+} from "../types/mod.ts";
 
 export type CreateDineroOptions<TAmount> = {
   readonly calculator: Calculator<TAmount>;
+  readonly formatter?: Formatter<TAmount>;
   readonly onCreate?: (options: DineroOptions<TAmount>) => void;
 };
 
 export function createDinero<TAmount>({
   calculator,
   onCreate,
+  formatter = {
+    toNumber: Number,
+    toString: String,
+  },
 }: CreateDineroOptions<TAmount>) {
   return function dinero({
     amount,
@@ -21,6 +31,7 @@ export function createDinero<TAmount>({
 
     return {
       calculator,
+      formatter,
       create: dinero,
       toJSON() {
         return {
