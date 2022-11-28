@@ -8,9 +8,9 @@ export type {
   DineroFactory,
   DineroOptions,
   DineroSnapshot,
+  DivideOperation,
   Formatter,
   Rates,
-  RoundingOptions,
   Transformer,
 } from "../core/mod.ts";
 export {
