@@ -1,12 +1,11 @@
 import { assertEquals } from "testing/asserts.ts";
 import { describe, it } from "testing/bdd.ts";
 
-import { compare } from "../../../calculator/number/mod.ts";
+import { calculator } from "../../../calculator/number/mod.ts";
 
 import { lessThan } from "../lessThan.ts";
 
-// @ts-expect-error testing
-const lessThanFn = lessThan({ compare });
+const lessThanFn = lessThan(calculator);
 
 describe("lessThan", () => {
   it(

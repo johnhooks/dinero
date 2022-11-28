@@ -1,12 +1,11 @@
 import { assertEquals } from "testing/asserts.ts";
 import { describe, it } from "testing/bdd.ts";
 
-import { compare as cmp } from "../../../calculator/number/mod.ts";
+import { calculator } from "../../../calculator/number/mod.ts";
 
 import { compare } from "../compare.ts";
 
-// @ts-expect-error testing
-const compareFn = compare({ compare: cmp });
+const compareFn = compare(calculator);
 
 describe("compare", () => {
   describe("inferiority", () => {

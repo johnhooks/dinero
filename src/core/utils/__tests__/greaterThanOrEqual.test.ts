@@ -1,12 +1,11 @@
 import { assertEquals } from "testing/asserts.ts";
 import { describe, it } from "testing/bdd.ts";
 
-import { compare } from "../../../calculator/number/mod.ts";
+import { calculator } from "../../../calculator/number/mod.ts";
 
 import { greaterThanOrEqual } from "../greaterThanOrEqual.ts";
 
-// @ts-expect-error testing
-const greaterThanOrEqualFn = greaterThanOrEqual({ compare });
+const greaterThanOrEqualFn = greaterThanOrEqual(calculator);
 
 describe("greaterThanOrEqual", () => {
   it(

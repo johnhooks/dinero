@@ -1,12 +1,11 @@
 import { assertEquals } from "testing/asserts.ts";
 import { describe, it } from "testing/bdd.ts";
 
-import { compare } from "../../../calculator/number/mod.ts";
+import { calculator } from "../../../calculator/number/mod.ts";
 
 import { equal } from "../equal.ts";
 
-// @ts-expect-error testing
-const equalFn = equal({ compare });
+const equalFn = equal(calculator);
 
 describe("equal", () => {
   it("returns true with equal positive numbers", () => {

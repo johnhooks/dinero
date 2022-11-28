@@ -1,12 +1,11 @@
 import { assertEquals } from "testing/asserts.ts";
 import { describe, it } from "testing/bdd.ts";
 
-import { compare } from "../../../calculator/number/mod.ts";
+import { calculator } from "../../../calculator/number/mod.ts";
 
 import { maximum } from "../maximum.ts";
 
-// @ts-expect-error testing
-const maximumFn = maximum({ compare });
+const maximumFn = maximum(calculator);
 
 describe("maximum", () => {
   it("gets the greatest from positive numbers", () => {

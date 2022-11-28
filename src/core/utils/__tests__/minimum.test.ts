@@ -1,12 +1,11 @@
 import { assertEquals } from "testing/asserts.ts";
 import { describe, it } from "testing/bdd.ts";
 
-import { compare } from "../../../calculator/number/mod.ts";
+import { calculator } from "../../../calculator/number/mod.ts";
 
 import { minimum } from "../minimum.ts";
 
-// @ts-expect-error testing
-const minimumFn = minimum({ compare });
+const minimumFn = minimum(calculator);
 
 describe("minimum", () => {
   it("gets the lowest from positive numbers", () => {
