@@ -6,3 +6,5 @@ const dinero = createDinero({ calculator });
 export function createBigintDinero(options: DineroOptions<bigint>) {
   return dinero(options);
 }
+
+export { calculator as bigintCalculator };
