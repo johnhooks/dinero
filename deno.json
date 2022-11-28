@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "format": "deno fmt src/ mod.ts"
+    "format": "deno fmt src/ mod.ts",
+    "build": "deno run --allow-run --allow-env --allow-read --allow-write scripts/build.ts"
   },
   "importMap": "./import_map.json",
   "compilerOptions": {

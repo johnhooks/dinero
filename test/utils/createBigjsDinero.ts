@@ -1,4 +1,4 @@
-import { Big } from "../../test_deps.ts";
+import { Big } from "../../deps.ts";
 
 import {
   type ComparisonOperator,
