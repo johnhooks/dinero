@@ -6,6 +6,10 @@ on:
       - main
     paths:
       - "**.ts"
+permissions:
+  checks: write
+  statuses: write
+  pull-requests: read
 jobs:
   test:
     runs-on: ubuntu-latest
