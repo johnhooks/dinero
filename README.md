@@ -1,5 +1,7 @@
 # dinero
 
+test action
+
 <p align="center">
   <strong>This repository is a port of the awesome <a href="https://v2.dinerojs.com/">Dinero.js</a> package by <a href="https://github.com/sarahdayan">Sarah Dayan</a> to a Deno module</strong>
 </p>
