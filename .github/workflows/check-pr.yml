@@ -1,0 +1,36 @@
+name: check-commit
+on:
+  pull_request:
+    types: [opened, reopened]
+    branches:
+      - main
+    paths:
+      - "**.ts"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - name: test module
+        run: deno test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - name: lint module
+        run: deno lint
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - name: fmt --check module
+        run: deno fmt --check
