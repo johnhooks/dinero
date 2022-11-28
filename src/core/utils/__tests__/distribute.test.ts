@@ -1,32 +1,11 @@
 import { assertEquals } from "testing/asserts.ts";
 import { describe, it } from "testing/bdd.ts";
 
-import {
-  add,
-  compare,
-  decrement,
-  increment,
-  integerDivide,
-  modulo,
-  multiply,
-  subtract,
-  zero,
-} from "../../../calculator/number/mod.ts";
+import { calculator } from "../../../calculator/number/mod.ts";
 
 import { distribute } from "../distribute.ts";
 
-// @ts-expect-error testing
-const distributeFn = distribute({
-  add,
-  compare,
-  integerDivide,
-  increment,
-  decrement,
-  multiply,
-  subtract,
-  zero,
-  modulo,
-});
+const distributeFn = distribute(calculator);
 
 describe("distribute", () => {
   it("distributes to percentages", () => {
